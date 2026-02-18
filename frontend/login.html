@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CareerPath AI - Access Your Path</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "cream": "#F8F4EC",
+            "pink-light": "#FF8FB7",
+            "pink-main": "#E83C91",
+            "purple-dark": "#43334C",
+          },
+          fontFamily: { "sans": ["Poppins", "sans-serif"] },
+          boxShadow: { 'glow': '0 0 20px rgba(232, 60, 145, 0.15)' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .glass-input {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(67, 51, 76, 0.1);
+      transition: all 0.3s ease;
+    }
+    .glass-input:focus {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: #E83C91;
+      box-shadow: 0 0 0 4px rgba(232, 60, 145, 0.1);
+      outline: none;
+    }
+
+    .auth-content { display: none; }
+    #tab-login:checked ~ .form-container #login-content { display: block; animation: fadeIn 0.4s ease-out; }
+    #tab-register:checked ~ .form-container #register-content { display: block; animation: fadeIn 0.4s ease-out; }
+
+    #tab-login:checked ~ .toggle-container .toggle-login { background: #E83C91; color: white; box-shadow: 0 4px 15px rgba(232, 60, 145, 0.3); }
+    #tab-register:checked ~ .toggle-container .toggle-register { background: #E83C91; color: white; box-shadow: 0 4px 15px rgba(232, 60, 145, 0.3); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+    }
+    .animate-blob { animation: float 10s infinite ease-in-out; }
+  </style>
+</head>
+
+<body class="bg-cream text-purple-dark font-sans min-h-screen flex flex-col overflow-x-hidden antialiased">
+
+  <!-- Background blobs -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-10%] left-[10%] w-[500px] h-[500px] bg-pink-light/30 rounded-full blur-[100px] animate-blob"></div>
+    <div class="absolute bottom-[-10%] right-[10%] w-[600px] h-[600px] bg-pink-main/10 rounded-full blur-[120px] animate-blob" style="animation-delay: 2s;"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 glass-panel">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2 group cursor-pointer" onclick="window.location.href='/'">
+        <div class="p-2 bg-pink-main rounded-lg text-white shadow-glow transition-transform group-hover:scale-110">
+          <span class="material-symbols-outlined">psychology_alt</span>
+        </div>
+        <span class="text-xl font-bold tracking-tight">CareerPath AI</span>
+      </div>
+
+      <a href="/" class="text-sm font-semibold opacity-60 hover:opacity-100 hover:text-pink-main transition-all flex items-center gap-1">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-4 relative z-10">
+    <div class="w-full max-w-md">
+
+      <!-- Tabs -->
+      <input checked class="hidden" id="tab-login" name="auth-toggle" type="radio"/>
+      <input class="hidden" id="tab-register" name="auth-toggle" type="radio"/>
+
+      <div class="toggle-container glass-panel p-1.5 rounded-full flex mb-8 w-fit mx-auto shadow-sm">
+        <label class="toggle-login px-8 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 cursor-pointer transition-all duration-300" for="tab-login">
+          <span class="material-symbols-outlined text-[18px]">login</span> Login
+        </label>
+        <label class="toggle-register px-8 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 cursor-pointer transition-all duration-300" for="tab-register">
+          <span class="material-symbols-outlined text-[18px]">person_add</span> Register
+        </label>
+      </div>
+
+      <div class="form-container">
+
+        <!-- Login Form -->
+        <div class="auth-content" id="login-content">
+          <div class="glass-panel rounded-3xl p-10 shadow-xl border border-white/40">
+            <div class="text-center mb-8">
+              <h1 class="text-2xl font-bold mb-2">Welcome Back</h1>
+              <p class="opacity-60 text-sm font-medium">Continue your career evolution.</p>
+            </div>
+
+            <form id="login-form" class="space-y-5">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="email-login">Email Address</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">mail</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="email-login"
+                    name="email"
+                    placeholder="name@example.com"
+                    required
+                    type="email"
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="password-login">Password</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">lock</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="password-login"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    type="password"
+                  />
+                </div>
+              </div>
+
+              <button class="w-full bg-pink-main hover:bg-pink-main/90 text-white font-bold py-4 rounded-2xl shadow-lg shadow-pink-main/20 transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+                Sign In <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+
+              <p id="login-error" class="text-center text-sm font-semibold text-red-600 hidden"></p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-content" id="register-content">
+          <div class="glass-panel rounded-3xl p-10 shadow-xl border border-white/40">
+            <div class="text-center mb-8">
+              <h1 class="text-2xl font-bold mb-2">Join CareerPath</h1>
+              <p class="opacity-60 text-sm font-medium">Start your personalized prep today.</p>
+            </div>
+
+            <form id="register-form" class="space-y-5">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="name-register">Full Name</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">person</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="name-register"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="email-register">Email Address</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">mail</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="email-register"
+                    name="email"
+                    placeholder="name@example.com"
+                    required
+                    type="email"
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="password-register">Password</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">lock</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="password-register"
+                    name="password"
+                    placeholder="Create a strong password"
+                    required
+                    type="password"
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="block text-xs font-bold uppercase opacity-60 ml-1" for="confirm-password-register">Confirm Password</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-4 top-3.5 text-purple-dark/30 text-[20px]">lock</span>
+                  <input
+                    class="glass-input w-full pl-11 pr-4 py-4 rounded-2xl text-sm font-medium"
+                    id="confirm-password-register"
+                    placeholder="Confirm your password"
+                    required
+                    type="password"
+                  />
+                </div>
+              </div>
+
+              <button class="w-full bg-pink-main hover:bg-pink-main/90 text-white font-bold py-4 rounded-2xl shadow-lg shadow-pink-main/20 transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+                Create Account <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+              </button>
+
+              <p id="register-error" class="text-center text-sm font-semibold text-red-600 hidden"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-xs mt-8 opacity-40 font-medium">
+        By continuing, you agree to our Terms of Service and Privacy Policy.
+      </p>
+    </div>
+  </main>
+
+  <footer class="py-6 border-t border-black/5 glass-panel mt-auto">
+    <div class="max-w-7xl mx-auto text-center text-xs font-bold opacity-40 uppercase tracking-widest">
+      © 2025 CareerPath AI • Empowering Careers
+    </div>
+  </footer>
+
+  <!-- Fixed Auth Logic (FastAPI routes + APIs) -->
+  <script>
+    const loginError = document.getElementById("login-error");
+    const registerError = document.getElementById("register-error");
+
+    document.getElementById("login-form").addEventListener("submit", async function(e){
+      e.preventDefault();
+      loginError.classList.add("hidden");
+      loginError.textContent = "";
+
+      const email = document.getElementById("email-login").value.trim();
+      const password = document.getElementById("password-login").value;
+
+      const fd = new FormData();
+      fd.append("email", email);
+      fd.append("password", password);
+
+      try {
+        const res = await fetch("/api/login", { method: "POST", body: fd, redirect: "manual" });
+
+        if (res.status === 303 || res.status === 302 || res.ok) {
+          window.location.href = "/dashboard";
+          return;
+        }
+
+        const data = await res.json().catch(() => ({}));
+        loginError.textContent = data.error || "Login failed";
+        loginError.classList.remove("hidden");
+      } catch (err) {
+        loginError.textContent = "Network error. Please try again.";
+        loginError.classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("register-form").addEventListener("submit", async function(e){
+      e.preventDefault();
+      registerError.classList.add("hidden");
+      registerError.textContent = "";
+
+      const name = document.getElementById("name-register").value.trim();
+      const email = document.getElementById("email-register").value.trim();
+      const password = document.getElementById("password-register").value;
+      const confirm = document.getElementById("confirm-password-register").value;
+
+      if(password !== confirm){
+        registerError.textContent = "Passwords do not match!";
+        registerError.classList.remove("hidden");
+        return;
+      }
+
+      const fd = new FormData();
+      fd.append("name", name);
+      fd.append("email", email);
+      fd.append("password", password);
+
+      try {
+        const res = await fetch("/api/register", { method: "POST", body: fd, redirect: "manual" });
+
+        if (res.status === 303 || res.status === 302 || res.ok) {
+          window.location.href = "/question-after-register";
+          return;
+        }
+
+        const data = await res.json().catch(() => ({}));
+        registerError.textContent = data.error || "Register failed";
+        registerError.classList.remove("hidden");
+      } catch (err) {
+        registerError.textContent = "Network error. Please try again.";
+        registerError.classList.remove("hidden");
+      }
+    });
+  </script>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

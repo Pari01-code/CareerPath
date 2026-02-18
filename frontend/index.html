@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CareerPath AI - Master Your Future</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E83C91",
+                        "primary-light": "#FF8FB7",
+                        "accent-dark": "#43334C",
+                        "background-cream": "#F8F4EC",
+                    },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(67, 51, 76, 0.08)',
+                        'glow': '0 0 20px rgba(232, 60, 145, 0.2)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(248, 244, 236, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        .animate-blob { animation: float 12s infinite ease-in-out; }
+    </style>
+</head>
+
+<body class="bg-background-cream text-accent-dark font-display overflow-x-hidden antialiased">
+
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[10%] w-[500px] h-[500px] bg-primary-light/30 rounded-full blur-[100px] animate-blob"></div>
+        <div class="absolute bottom-[5%] right-[5%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-blob" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative flex min-h-screen flex-col z-10">
+        <header class="fixed top-0 w-full z-50 glass-nav">
+            <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <div class="size-9 bg-primary rounded-lg flex items-center justify-center text-white shadow-glow transition-transform group-hover:scale-110">
+                        <span class="material-symbols-outlined">psychology_alt</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">CareerPath AI</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#terms" class="text-sm font-semibold opacity-70 hover:opacity-100 hover:text-primary transition-all">Terms</a>
+                    <a href="#support" class="text-sm font-semibold opacity-70 hover:opacity-100 hover:text-primary transition-all">Support</a>
+
+                    <!-- CHANGED: login.html -> /login -->
+                    <a href="/login" class="h-10 px-6 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center transition-all active:scale-95">
+                        Login
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow pt-32 pb-20 px-6">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 border border-white shadow-sm backdrop-blur-md">
+                        <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+                        <span class="text-xs font-bold uppercase tracking-widest opacity-80">Next-Gen Interview Prep</span>
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl font-black leading-[1.05] tracking-tight">
+                        Master interviews with <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">Tailored AI.</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl opacity-80 leading-relaxed max-w-xl">
+                        Stop practicing with generic questions. CareerPath AI analyzes your specific career goals to identify skill gaps and provide real-time feedback.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <!-- CHANGED: login.html -> /login -->
+                        <a href="/login" class="px-8 py-4 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+                            Start Your Journey
+                        </a>
+
+                        <!-- CHANGED: ai.html -> /ai -->
+                        <a href="/ai" class="px-8 py-4 bg-white/40 border border-white/60 font-bold rounded-2xl backdrop-blur-md hover:bg-white/60 transition-all flex items-center justify-center">
+                            View Demo
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-4">
+                        <div class="flex -space-x-3">
+                            <div class="size-10 rounded-full border-2 border-white bg-slate-300"></div>
+                            <div class="size-10 rounded-full border-2 border-white bg-slate-400"></div>
+                            <div class="size-10 rounded-full border-2 border-white bg-slate-500"></div>
+                        </div>
+                        <p class="text-sm font-medium opacity-60">Trusted by 10k+ candidates</p>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block h-[500px]">
+                    <div class="absolute top-0 right-0 w-80 glass-card rounded-3xl p-6 shadow-glass rotate-[-2deg] hover:rotate-0 transition-transform duration-500 z-20">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm font-bold opacity-60">Skill Analysis</span>
+                            <span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">+12%</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs font-bold"><span>System Design</span><span>85%</span></div>
+                                <div class="h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-primary w-[85%]"></div></div>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs font-bold"><span>Algorithms</span><span>62%</span></div>
+                                <div class="h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-primary-light w-[62%]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-12 left-0 w-80 glass-card rounded-3xl p-6 shadow-glass rotate-[3deg] hover:rotate-0 transition-transform duration-500 z-30">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="size-10 rounded-full bg-gradient-to-tr from-primary to-purple-600 flex items-center justify-center text-white">
+                                <span class="material-symbols-outlined">smart_toy</span>
+                            </div>
+                            <span class="text-sm font-black">AI Feedback</span>
+                        </div>
+                        <p class="text-sm leading-relaxed opacity-90">
+                            "Excellent use of the <b>STAR method</b>. Next time, try to quantify your results with specific percentages."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+          <section id="terms" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="glass-card rounded-3xl p-8 shadow-glass border border-white/30">
+    <h2 class="text-3xl font-bold mb-4">Terms & Conditions</h2>
+    <p class="opacity-80 leading-relaxed">
+      Welcome to CareerPath AI. By accessing or using our platform, you agree to comply with our rules and policies. You are responsible for your account and any activity that occurs under it. All content is for educational purposes only. Misuse of the platform may result in account suspension.
+    </p>
+  </div>
+</section>
+
+<section id="support" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="glass-card rounded-3xl p-8 shadow-glass border border-white/30">
+    <h2 class="text-3xl font-bold mb-4">Support</h2>
+    <p class="opacity-80 leading-relaxed mb-2">
+      Need help? Reach out to us at:
+    </p>
+    <ul class="opacity-80 leading-relaxed space-y-1">
+      <li>Email: <strong>parisoni0105@gmail.com</strong></li>
+      <li>Phone: <strong>9301106640</strong></li>
+    </ul>
+    <p class="opacity-80 leading-relaxed mt-2">
+      Available Monday to Friday, 9am to 6pm IST. We'll respond as soon as possible.
+    </p>
+  </div>
+</section>
+
+        </main>
+
+        <footer class="mt-auto py-12 border-t border-black/5 glass-nav">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-2 font-bold text-lg">
+                    <span class="material-symbols-outlined text-primary">psychology_alt</span>
+                    CareerPath AI
+                </div>
+                <p class="text-xs opacity-40">© 2025 CareerPath AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerPath AI Interview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E83C91",
+                        "primary-hover": "#C92A7A",
+                        "accent": "#FF8FB7",
+                        "background-cream": "#F8F4EC",
+                        "text-dark": "#43334C",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    boxShadow: {
+                        "glass": "0 4px 30px rgba(0, 0, 0, 0.1)",
+                        "glow": "0 0 15px rgba(232, 60, 145, 0.3)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .typing-dot {
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(67, 51, 76, 0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(67, 51, 76, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-cream text-text-dark font-display h-screen flex flex-col overflow-hidden selection:bg-accent selection:text-text-dark">
+<!-- Navbar -->
+ 
+<header class="h-16 shrink-0 glass-panel z-20 flex items-center justify-between px-6 sticky top-0">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-glow">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<h1 class="text-text-dark text-lg font-bold tracking-tight">CareerPath AI</h1>
+</div>
+<div class="hidden md:flex flex-col items-center">
+<span class="text-text-dark font-semibold text-sm">Senior Developer Session</span>
+<span class="text-text-dark/60 text-xs">Live Interview • 14:02 elapsed</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="size-9 rounded-full hover:bg-white/50 flex items-center justify-center transition-colors text-text-dark">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<button class="h-9 px-4 rounded-full bg-text-dark text-white text-sm font-medium hover:bg-text-dark/90 transition-colors shadow-lg">
+                End Session
+            </button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Background Gradient Blobs -->
+<div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Sidebar -->
+<aside class="w-80 glass-panel border-r-0 border-t-0 border-b-0 hidden lg:flex flex-col z-10 m-4 rounded-2xl shadow-glass overflow-hidden">
+<!-- Profile -->
+<div class="p-6 border-b border-white/40">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="size-12 rounded-full bg-cover bg-center ring-2 ring-white shadow-md" data-alt="Candidate profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnojBZ67wqqzF7eGWKUSqCnU0zfeY1qWKl89txE7Hr3p43nOmYevyPjwfkprUz1nxeMEcRAjB2z3_2--yUpxbThXirO8-rh8alnexwYUIp-zfUUqz-QrEZYWU6HFQhf9NGYrNXjIXRraSFk5w5aDipakDmgTKz480rtypHCmYyiWjpeDp9IF3GA6wvoVF2n_3J5pw-fpEMgMvE_avK6TJedNCTeJ5VbiwNS-fWTjotCJHgkwWpI2c4sVSNN63tBr4rZeMboL1OhRDe');"></div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-white"></div>
+</div>
+<div>
+<h2 class="font-bold text-text-dark text-sm">Alex Morgan</h2>
+<p class="text-text-dark/60 text-xs">Frontend Architect</p>
+</div>
+</div>
+</div>
+<!-- Progress -->
+<div class="p-6 flex flex-col gap-6 flex-1 overflow-y-auto">
+<!-- Session Progress -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h3 class="text-xs font-bold uppercase tracking-wider text-text-dark/50">Progress</h3>
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">4/10 Qs</span>
+</div>
+<div class="w-full bg-white/50 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full shadow-glow transition-all duration-500" style="width: 40%"></div>
+</div>
+<p class="text-xs text-text-dark/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        Difficulty increasing based on responses
+                    </p>
+</div>
+<!-- Live Analysis -->
+<div class="space-y-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-text-dark/50">Live Analysis</h3>
+<div class="glass-panel rounded-xl p-4 flex items-center justify-between shadow-sm bg-white/30">
+<div class="flex flex-col">
+<span class="text-xs text-text-dark/60">Confidence</span>
+<span class="text-xl font-bold text-text-dark">88%</span>
+</div>
+<div class="size-10 rounded-full border-[3px] border-primary/20 border-t-primary flex items-center justify-center rotate-45">
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex items-center justify-between shadow-sm bg-white/30">
+<div class="flex flex-col">
+<span class="text-xs text-text-dark/60">Pace</span>
+<span class="text-xl font-bold text-text-dark">Optimal</span>
+</div>
+<span class="material-symbols-outlined text-green-600">check_circle</span>
+</div>
+</div>
+<!-- Skills Detected -->
+<div class="space-y-3">
+<h3 class="text-xs font-bold uppercase tracking-wider text-text-dark/50">Skills Detected</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-white/60 text-text-dark text-xs font-medium border border-white/50 shadow-sm">React</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/60 text-text-dark text-xs font-medium border border-white/50 shadow-sm">System Design</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/60 text-text-dark text-xs font-medium border border-white/50 shadow-sm">Microservices</span>
+<span class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-xs font-medium border border-primary/20 shadow-sm flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-primary animate-pulse"></span> Analyzing...
+                        </span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="p-4 border-t border-white/40 bg-white/20">
+<button class="w-full py-2 rounded-lg bg-white/50 hover:bg-white/80 text-xs font-semibold text-text-dark transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">description</span>
+                    View Job Description
+                </button>
+</div>
+</aside>
+<!-- Main Chat Area -->
+<main class="flex-1 flex flex-col relative z-0 h-full">
+<!-- Video PIP (User Camera) -->
+<div class="absolute top-4 right-4 md:right-8 w-48 aspect-video glass-panel bg-black/10 rounded-xl overflow-hidden shadow-glass z-20 group cursor-pointer transition-all hover:scale-105">
+<div class="w-full h-full bg-cover bg-center relative" data-alt="Webcam feed of user" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdfN50veqOkYEjV8zOpz8Nc8wWRT1QU0JczctFPZDc9tSpAeeu9sMmcoOJDzVLWHrwPoQoMtiSM7W8puVB5OH3BnEcmxOLEbxCZwB1QDaOl3p8o2DynPZ0Ubak3cN0Q2_7LhyE71_nh3aEFZ5g1t9UxQJ2F5PHVxXwKjy73r1WwOd_urVynK_8wpgHg8s3BakX7dPvTVbb9IyJ7PxZUFuA33fu_3PAaayTxzEURSafClgM-7rqk009OrTko5vB9QwudoPnrDTpVajX');">
+<div class="absolute bottom-2 left-2 flex gap-1">
+<div class="size-2 rounded-full bg-red-500 animate-pulse"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/20 transition-opacity">
+<span class="material-symbols-outlined text-white">videocam_off</span>
+</div>
+</div>
+</div>
+<!-- Messages Stream -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 scroll-smooth pb-32">
+<!-- Time divider -->
+<div class="flex justify-center">
+<span class="text-xs text-text-dark/40 font-medium bg-white/30 px-3 py-1 rounded-full backdrop-blur-sm">Today, 2:00 PM</span>
+</div>
+<!-- AI Message -->
+<div class="flex gap-4 max-w-3xl">
+<div class="flex-shrink-0 mt-1">
+<div class="size-10 rounded-full bg-gradient-to-br from-primary to-[#43334C] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="glass-panel bg-white/80 p-5 rounded-2xl rounded-tl-none shadow-sm text-text-dark text-sm leading-relaxed">
+<p>Welcome back, Alex. Based on your resume, I see you have significant experience with frontend architecture.</p>
+</div>
+</div>
+</div>
+<!-- AI Message 2 -->
+<div class="flex gap-4 max-w-3xl">
+<div class="flex-shrink-0 mt-1">
+<div class="size-10 rounded-full bg-gradient-to-br from-primary to-[#43334C] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="glass-panel bg-white/80 p-5 rounded-2xl rounded-tl-none shadow-sm text-text-dark text-sm leading-relaxed">
+<p>Let's dive into that. Can you describe a challenge you faced recently regarding state management in a large-scale application, and how you resolved it?</p>
+</div>
+<span class="text-xs text-text-dark/50 ml-2">Adaptability: High • Skill: State Mgmt</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-row-reverse gap-4 max-w-3xl ml-auto">
+<div class="flex-shrink-0 mt-1">
+<div class="size-10 rounded-full bg-cover bg-center shadow-md ring-2 ring-white" data-alt="User avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLYbLFS-R37HpLM7uNziG9BIvND4lwyiAWprlKIb7nAyjLN01FHYAs8x4YvtRLbrXuIJzYcYD_xf9HziPWpQrtp1LH-AQaY--ywHC_q5Ce3eE_Ko1vjDE7YHt95wVXtU7HGGSQ6_pLJ5n_Y-247zbUcRvzMhehUuLPPnvYLSzdv-BI3aF60Ze3-LBEAOCSDZoikUm3ldnD74MLB8PWCaQ1bFa60X1b7XCRSyyMZEFIot_KIQxRXIxG9B06hnG8lSraRE4ixo0XbGVX');"></div>
+</div>
+<div class="flex flex-col gap-2 items-end">
+<div class="bg-primary p-5 rounded-2xl rounded-tr-none shadow-lg shadow-primary/20 text-white text-sm leading-relaxed">
+<p>Sure. In my last project, we had a dashboard with real-time data updates causing excessive re-renders. We were using Redux initially.</p>
+</div>
+</div>
+</div>
+<!-- User Message continued -->
+<div class="flex flex-row-reverse gap-4 max-w-3xl ml-auto">
+<div class="flex-shrink-0 w-10"></div> <!-- Spacer for alignment -->
+<div class="flex flex-col gap-2 items-end">
+<div class="bg-primary p-5 rounded-2xl rounded-tr-none shadow-lg shadow-primary/20 text-white text-sm leading-relaxed">
+<p>I refactored the critical parts to use atomic state management with Recoil, which allowed us to isolate component updates much better. Performance improved by about 40%.</p>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">Recoil</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">Optimization</span>
+</div>
+</div>
+</div>
+<!-- AI Typing Indicator -->
+<div class="flex gap-4 max-w-3xl">
+<div class="flex-shrink-0 mt-1">
+<div class="size-10 rounded-full bg-gradient-to-br from-primary to-[#43334C] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+</div>
+<div class="glass-panel bg-white/80 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1">
+<div class="size-2 bg-primary/50 rounded-full typing-dot"></div>
+<div class="size-2 bg-primary/50 rounded-full typing-dot"></div>
+<div class="size-2 bg-primary/50 rounded-full typing-dot"></div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="absolute bottom-6 left-0 right-0 px-4 md:px-8 flex justify-center z-30">
+<div class="glass-input w-full max-w-4xl rounded-[24px] p-2 flex items-end gap-2 shadow-glass relative">
+<!-- Tools Toggle -->
+<button class="size-10 rounded-full hover:bg-primary/10 text-text-dark/60 hover:text-primary transition-colors flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+</button>
+<!-- Text Input -->
+<div class="flex-1 mb-1">
+<textarea class="w-full bg-transparent border-none text-text-dark placeholder-text-dark/40 focus:ring-0 resize-none py-2 px-2 max-h-32 text-sm md:text-base font-medium" placeholder="Type your answer..." rows="1"></textarea>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-1 pb-1 pr-1">
+<button class="size-10 rounded-full hover:bg-primary/10 text-text-dark/60 hover:text-primary transition-colors flex items-center justify-center relative group" title="Toggle Mic">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+<span class="absolute -top-10 bg-text-dark text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Voice Input</span>
+</button>
+<button class="size-10 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center relative group" title="Toggle Camera">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+<span class="absolute top-0 right-0 size-2.5 border-2 border-white bg-green-500 rounded-full"></span>
+</button>
+<button class="h-10 px-6 ml-2 rounded-[20px] bg-primary hover:bg-primary-hover text-white transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2 font-medium">
+<span>Send</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="/static/app.js"></script>
+</body></html>

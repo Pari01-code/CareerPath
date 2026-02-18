@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CareerPath AI - Academic Onboarding</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e83c91",
+                        "primary-light": "#ff8fb7",
+                        "text-dark": "#43334c",
+                        "background-light": "#f8f4ec",
+                    },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
+                    borderRadius: { "xl": "1rem", "2xl": "2rem" },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(67, 51, 76, 0.1)',
+                        'glow': '0 0 15px rgba(232, 60, 145, 0.3)',
+                    },
+                    animation: { 'blob': 'blob 7s infinite' },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(67, 51, 76, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #ff8fb7;
+            box-shadow: 0 0 0 4px rgba(255, 143, 183, 0.1);
+            outline: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light font-display text-text-dark min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-light selection:text-white">
+
+    <!-- Animated background blobs -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-light/30 rounded-full blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-70 animate-blob" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-20 flex items-center justify-between px-8 py-6 w-full max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+            <div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-glow">
+                <span class="material-symbols-outlined text-xl">auto_awesome</span>
+            </div>
+            <h2 class="text-text-dark text-xl font-bold tracking-tight">CareerPath AI</h2>
+        </div>
+        <div class="flex items-center gap-6">
+            <a class="text-text-dark/60 hover:text-primary font-medium text-sm transition-colors" href="#">Help</a>
+            <button class="text-text-dark/60 hover:text-primary font-medium text-sm transition-colors" onclick="window.location.href='index.html'">Save & Exit</button>
+        </div>
+    </header>
+
+    <!-- Main Onboarding Form -->
+    <main class="relative z-10 flex-1 flex flex-col items-center justify-center p-4 w-full max-w-2xl mx-auto">
+        <div class="w-full mb-8 space-y-2">
+            <div class="flex justify-between items-end px-1">
+                <p class="text-text-dark font-bold text-xs uppercase tracking-widest opacity-60">Onboarding</p>
+                <p id="step-indicator" class="text-primary font-bold text-sm">Step 1 of 5</p>
+            </div>
+            <div class="h-2 w-full bg-white/50 rounded-full overflow-hidden border border-white/60">
+                <div id="progress-bar" class="h-full bg-primary rounded-full transition-all duration-700" style="width: 20%;"></div>
+            </div>
+        </div>
+
+        <div class="glass-card w-full rounded-3xl shadow-glass p-8 md:p-12 relative overflow-hidden">
+            <form id="onboarding-form" class="flex flex-col gap-8">
+
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="space-y-2 text-center">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light/20 text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">person</span>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight">Personal Details</h1>
+                        <p class="opacity-70">Tell us a bit about yourself.</p>
+                    </div>
+                    <div class="space-y-5">
+                        <input type="text" name="fullname" placeholder="Full Name" class="glass-input w-full rounded-xl py-4 px-4 font-medium" required/>
+                        <input type="email" name="email" placeholder="Email" class="glass-input w-full rounded-xl py-4 px-4 font-medium" required/>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step hidden">
+                    <div class="space-y-2 text-center">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light/20 text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">school</span>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight">Academic Details</h1>
+                        <p class="opacity-70">Tell us where you're shaping your future.</p>
+                    </div>
+                    <div class="space-y-5">
+                        <input type="text" name="college" placeholder="College / University" class="glass-input w-full rounded-xl py-4 px-4 font-medium" required/>
+                        <select name="degree" class="glass-input w-full rounded-xl py-4 px-4 font-medium" required>
+                            <option disabled selected value="">Select Degree</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="bca">BCA</option>
+                            <option value="bsc">B.Sc</option>
+                            <option value="mtech">M.Tech</option>
+                        </select>
+                        <select name="stream" class="glass-input w-full rounded-xl py-4 px-4 font-medium" required>
+                            <option disabled selected value="">Select Stream</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics</option>
+                        </select>
+                        <input type="file" name="resume" class="glass-input w-full rounded-xl py-3 px-4 font-medium cursor-pointer" accept=".pdf,.doc,.docx"/>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step hidden">
+                    <div class="space-y-2 text-center">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light/20 text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">work</span>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight">Work Experience</h1>
+                        <p class="opacity-70">Share your professional background.</p>
+                    </div>
+                    <div class="space-y-5">
+                        <input type="text" name="company" placeholder="Company Name" class="glass-input w-full rounded-xl py-4 px-4 font-medium"/>
+                        <input type="text" name="role" placeholder="Role / Position" class="glass-input w-full rounded-xl py-4 px-4 font-medium"/>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step hidden">
+                    <div class="space-y-2 text-center">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light/20 text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">psychology</span>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight">Skills & Interests</h1>
+                        <p class="opacity-70">Let us know what you excel at.</p>
+                    </div>
+                    <div class="space-y-5">
+                        <input type="text" name="skills" placeholder="Skills (comma separated)" class="glass-input w-full rounded-xl py-4 px-4 font-medium"/>
+                        <input type="text" name="interests" placeholder="Interests" class="glass-input w-full rounded-xl py-4 px-4 font-medium"/>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step hidden">
+                    <div class="space-y-2 text-center">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light/20 text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight">All Set!</h1>
+                        <p class="opacity-70">You're ready to explore CareerPath AI.</p>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button type="button" onclick="window.location.href='dashboard.html'" class="px-8 py-3 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:scale-[1.02] transition-all">
+                            Go to Dashboard
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex items-center justify-between pt-4">
+                    <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-xl font-bold opacity-60 hover:opacity-100 transition-all">
+                        <span class="material-symbols-outlined text-lg">arrow_back</span> Back
+                    </button>
+                    <button type="button" id="next-btn" class="group flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:scale-[1.02] transition-all">
+                        Next Step
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const stepIndicator = document.getElementById('step-indicator');
+        let currentStep = 0;
+
+        function updateSteps() {
+            steps.forEach((step, index) => {
+                step.classList.toggle('hidden', index !== currentStep);
+            });
+            progressBar.style.width = `${((currentStep+1)/steps.length)*100}%`;
+            stepIndicator.textContent = `Step ${currentStep+1} of ${steps.length}`;
+
+            // hide prev button on first step
+            prevBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+            nextBtn.textContent = currentStep === steps.length - 1 ? 'Finish' : 'Next Step';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if(currentStep < steps.length - 1){
+                currentStep++;
+                updateSteps();
+            } else {
+                // Finish - go to dashboard
+                window.location.href = 'dashboard.html';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if(currentStep > 0){
+                currentStep--;
+                updateSteps();
+            }
+        });
+
+        // initialize
+        updateSteps();
+    </script>
+</body>
+</html>
